@@ -17,7 +17,7 @@ tengan fondo rojo y letra blanca*/
 /* Añadiendo sólo un id a la fila de la celda donde pone "Capacidad" y dando clase a las celdas con "GB" 
   cambiar el tamaño de la letra centrar el texto y poner el fondo gris */
 #fila .gb {
-    font size: 2em;
+    font-size: 2em;
     text-align: center;
     background-color: grey;
 }
