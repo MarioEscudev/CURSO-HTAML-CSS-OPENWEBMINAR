@@ -1,1 +1,1 @@
-aqui ira el primer ejercicio con posicion css
+Aqui irán todos los ejercicios practicos de maquetacion con CSS
