@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+
+<body>
+    <h1>Eventos</h1>
+    <button id="Cambiarfondo">Cambiar fondo</button>
+    
+    <script type="text/javascript">
+
+        /*document.addEventListener("keydown", function(evento){
+          //  console.log(evento);
+        });*/
+
+        let boton = document.getElementById('Cambiarfondo');
+        function random(numeroMaximo){
+            return Math.round(Math.random() * numeroMaximo);
+
+        }
+
+        boton.addEventListener("mousemove", function(evento) {
+            let randomColor = [
+                random(255),
+                random(255),
+                random(255),
+            ];
+
+            document.body.style.backgroundColor = "rgb(" + randomColor[0] + ","+ randomColor[1] + ","+ randomColor[2] + ")"
+        });
+
+        document.addEventListener('cambiarFondo', function(evento) {
+            console.log(evento);
+            console.log(evento.detail);
+        });
+
+        let event = new CustomEvent('cambiarFondo', { 'detail': 'Hola Mario' });
+
+        document.dispatchEvent(event);
+
+    </script>
+</body>
+</html>

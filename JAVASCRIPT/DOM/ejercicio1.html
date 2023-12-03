@@ -1,0 +1,53 @@
+
+<html>
+<head>
+    
+    <title>Mi primer dom</title>
+</head>
+<body> 
+    
+    <p>Mi primera clase practica de DOM </p>
+
+    <ul id="todo_list">
+
+    </ul>
+
+    
+    <script type="text/javascript">
+        let parrafo = document.getElementsByTagName('p');
+        
+        parrafo[0].style.color ='blue';
+        parrafo[0].style.backgroundColor = 'yellow';
+
+        let tareas = [
+            "Hacer la colada",
+            "Preparar la cena",
+            "Tirar la basura",
+
+        ];
+
+        let todoList = document.querySelector('#todo_list');
+        
+        for(let i = 0; i < tareas.length; i += 1) {
+            let tarea = tareas[i];
+
+            let li = document.createElement('li');
+
+            li.textContent = tarea;
+            li.id = 'elemento_' + i;
+
+            todoList.appendChild(li);
+
+
+        }
+
+        setTimeout(function() {
+            let elementoAeliminar = document.getElementById('elemento_2');
+            todoList.removeChild(elementoAeliminar);
+        }, 2000);
+
+        
+
+    </script>
+</body>
+</html>

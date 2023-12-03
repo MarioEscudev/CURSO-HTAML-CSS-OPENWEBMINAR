@@ -1,0 +1,64 @@
+
+<html>
+<head>
+    
+    <title>Mi primer dom</title>
+</head>
+<body> 
+    
+    <p>Mi primera clase practica de DOM </p>
+    <input type="text" id="todoTitle">
+    <button id="AgregarTarea">Agregar tarea</button>
+    <ul id="todo_list">
+
+    </ul>
+
+    
+    <script type="text/javascript">
+        let parrafo = document.getElementsByTagName('p');
+        
+        parrafo[0].style.color ='blue';
+        parrafo[0].style.backgroundColor = 'yellow';
+
+        let tareas = [
+            "Hacer la colada",
+            "Preparar la cena",
+            "Tirar la basura",
+
+        ];
+
+        let todoList = document.querySelector('#todo_list');
+
+        function agregarTarea(tarea, id) {
+            let li = document.createElement('li');
+
+            li.textContent = tarea;
+
+            if(id){
+                li.id=id;
+            }
+
+            todoList.appendChild(li);
+
+        }
+        
+        for(let i = 0; i < tareas.length; i += 1) {
+            let tarea = tareas[i];
+
+            let li = document.createElement('li');
+            agregarTarea(tarea,'elemento_' + i )
+            
+        }
+
+        let boton = document.getElementById('AgregarTarea');
+        boton.addEventListener('click', function() {
+            let todoValue = document.getElementById('todoTitle').value;
+            
+
+        agregarTarea(todoValue);
+        })
+
+
+    </script>
+</body>
+</html>

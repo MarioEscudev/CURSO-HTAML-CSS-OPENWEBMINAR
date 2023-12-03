@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones regulares</title>
+</head>
+<body>
+    <p>Expresiones regulares</p>
+
+    <script type="text/javascript">
+        let texto = "hola mundo";
+
+        let regExp = /^[a-z]$/g;
+
+        let regExp2 = /s+$/;
+        let texto2 = "bienvenidos";
+        console.log(texto2.search(regExp2));
+        console.log(regExp2.test(texto2));
+    </script>
+</body>
+</html>
