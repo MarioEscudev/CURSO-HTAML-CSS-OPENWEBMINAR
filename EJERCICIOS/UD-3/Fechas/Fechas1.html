@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Fechas</title>
+</head>
+<body>
+    <!-- Un elemento en HTML para mostrar las fechas -->
+    <div id="fechasResultado"></div>
+
+
+    <script>
+        //Pedimos al Usuario que introducta la fecha por pantalla//
+        let fechaIngresada = prompt("Ingrese una fecha (formato : YYYY-MM-DD)");
+        //Creamos nueva variable para crear un nuevo Objeto fecha, con el valor introducido//
+        let fecha = new Date (fechaIngresada);
+        //Verificar si la entrada de fecha es valida o no //
+        if(!isNaN(fecha.getTime())){
+            //Calcular las fechas adicionales
+            let fecha30Dias = new Date (fecha);
+            fecha30Dias.setDate(fecha.getDate() + 30);
+
+            let fecha60Dias = new Date (fecha);
+            fecha60Dias.setDate(fecha.getDate() + 60);
+
+            let fecha90Dias = new Date (fecha);
+            fecha90Dias.setDate(fecha.getDate() + 90);
+            
+            //Obtener el elemento HTML donde mostraremos las fevchas 
+            let fechasResultadoElemento = document.getElementById('fechasResultado');
+
+            //Mostrar las fechas resultantes en el elemento HTML
+            fechasResultadoElemento.innerHTML = 
+                "<p>Fecha ingresada : " + fecha.toDateString() + "</p>" + 
+                "<p>Primera fecha : " + fecha30Dias.toDateString() + "</p>" +
+                "<p>Segunda fecha : " + fecha60Dias.toDateString() + "</p>" +
+                "<p>Tercera fecha : " + fecha90Dias.toDateString() + "</p>" ; 
+                
+
+        } else{
+            alert("Fecha no válida. Asegurese de introducir un formato válido")
+        }
+    </script>
+</body>
+</html>

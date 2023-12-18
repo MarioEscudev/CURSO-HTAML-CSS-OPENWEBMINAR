@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saludo y Reloj</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #reloj {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Función para obtener el saludo según la hora actual
+  function obtenerSaludo() {
+    var fecha = new Date();
+    var hora = fecha.getHours();
+
+    if (hora >= 6 && hora < 12) {
+      return "Buenos días";
+    } else if (hora >= 12 && hora < 20) {
+      return "Buenas tardes";
+    } else {
+      return "Buenas noches";
+    }
+  }
+
+  // Función para obtener la fecha y hora actual formateada
+  function obtenerFechaHora() {
+    var diasSemana = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+    var fecha = new Date();
+    var diaSemana = diasSemana[fecha.getDay()];
+    var dia = fecha.getDate();
+    var mes = meses[fecha.getMonth()];
+    var año = fecha.getFullYear();
+    var hora = fecha.getHours();
+    var minutos = fecha.getMinutes();
+
+    return `Hoy es ${diaSemana}, ${dia} de ${mes} de ${año} y son las ${hora}:${minutos < 10 ? '0' + minutos : minutos} horas.`;
+  }
+
+  // Función para mostrar el reloj en pantalla y actualizar cada segundo
+  function mostrarReloj() {
+    var relojElemento = document.getElementById('reloj');
+    setInterval(function () {
+      var fechaHora = new Date();
+      relojElemento.innerText = `${obtenerFechaHora()} ${fechaHora.getHours()}:${fechaHora.getMinutes()}:${fechaHora.getSeconds()}`;
+    }, 1000);
+  }
+
+  // Mostrar saludo y fecha al cargar la página
+  document.write(`<p>${obtenerSaludo()}</p>`);
+  document.write(`<p id="reloj">${obtenerFechaHora()}</p>`);
+
+  // Iniciar el reloj
+  mostrarReloj();
+</script>
+
+</body>
+</html>
